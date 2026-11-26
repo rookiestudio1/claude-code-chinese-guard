@@ -1,0 +1,13 @@
+claude-code-chinese-guard
+
+本專案改寫自 claude-code-japanese-guard（https://github.com/minorun365/claude-code-japanese-guard），
+依 Apache License 2.0 授權使用。原專案著作權聲明如下：
+
+claude-code-japanese-guard
+Copyright 2026 Minoru Onda
+
+主要修改：
+- 退回訊息改為要求繁體中文（台灣用詞），並明確要求工具呼叫的參數維持原本的語言
+- 新增日文與簡體字的偵測
+- 支援 Windows：stdin 以 UTF-8 解碼、輸出 JSON 跳脫為 ASCII
+- 增量讀取 transcript、忽略沒有閉合的程式碼區塊
