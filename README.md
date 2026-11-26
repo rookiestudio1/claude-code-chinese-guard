@@ -30,7 +30,23 @@ Claude Code 的回應變成英文、日文或簡體中文時，要求改寫成�
 
 需要 Python 3.7 以上，不需要額外套件。
 
-1. 把 `hooks/chinese-guard.py` 複製到 `~/.claude/hooks/`。
+1. 下載 hook 到 `~/.claude/hooks/`。
+
+   macOS／Linux／Git Bash：
+
+   ```bash
+   mkdir -p ~/.claude/hooks
+   curl -fsSL https://raw.githubusercontent.com/rookiestudio1/claude-code-chinese-guard/main/hooks/chinese-guard.py -o ~/.claude/hooks/chinese-guard.py
+   ```
+
+   Windows PowerShell（要寫 `curl.exe`，只寫 `curl` 會變成 `Invoke-WebRequest` 的別名）：
+
+   ```powershell
+   New-Item -ItemType Directory -Force "$HOME\.claude\hooks" | Out-Null
+   curl.exe -fsSL https://raw.githubusercontent.com/rookiestudio1/claude-code-chinese-guard/main/hooks/chinese-guard.py -o "$HOME\.claude\hooks\chinese-guard.py"
+   ```
+
+   hook 每一回合都會以你的權限執行，建議下載後先讀過內容。想固定版本時，把網址中的 `main` 換成某個 commit 的 SHA。
 
 2. 在 `~/.claude/settings.json` 的 `hooks.Stop` 與 `hooks.PreToolUse` 陣列中各加入一筆，既有設定保留不動。
 
